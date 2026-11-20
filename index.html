@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aditya Pun – Software Engineering Student</title>
+<meta name="description" content="Portfolio of Aditya Pun, software engineering student in Kathmandu, Nepal. Python, HTML, CSS, Git.">
+<style>
+:root{--bg:#0b0c0e;--card:#16191c;--card2:#1d2125;--line:#2a2f34;--text:#f2f4f5;--muted:#9aa3aa;--accent:#10c48f}
+*{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:dark}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6;min-height:100vh;padding:48px 20px}
+a{color:inherit}
+input[name=tab]{position:absolute;opacity:0;pointer-events:none}
+.layout{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:260px 1fr;gap:24px;align-items:start}
+.side,.main{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.side{padding:28px 22px;text-align:center;position:sticky;top:24px}
+.side img{width:112px;height:112px;border-radius:50%;object-fit:cover;border:3px solid var(--line)}
+.side h1{font-size:1.35rem;margin-top:14px}
+.role{display:inline-block;margin-top:6px;padding:2px 14px;border-radius:99px;background:var(--card2);color:var(--muted);font-size:.78rem}
+.info{list-style:none;text-align:left;margin:22px 0;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;gap:16px}
+.info li{display:flex;gap:12px;align-items:center}
+.ico{flex:none;width:38px;height:38px;border-radius:10px;background:var(--card2);border:1px solid var(--line);display:grid;place-items:center;color:var(--accent);font-size:.8rem;font-weight:700}
+.info small{display:block;color:var(--muted);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase}
+.info span{font-size:.8rem;word-break:break-all}
+.btn{display:block;padding:10px 14px;border-radius:10px;font-weight:600;font-size:.85rem;text-decoration:none;text-align:center;background:var(--card2);border:1px solid var(--line);transition:.2s}
+.btn:hover{border-color:var(--accent)}
+.btn.p{background:var(--accent);border-color:var(--accent);color:#04251a}
+.btn.p:hover{filter:brightness(1.1)}
+.side .btn+.btn{margin-top:8px}
+.main{position:relative;padding:64px 40px 40px;min-height:560px}
+nav{position:absolute;top:0;right:0;display:flex;gap:6px;padding:14px 24px;background:var(--card2);border-bottom:1px solid var(--line);border-left:1px solid var(--line);border-radius:0 22px 0 22px}
+nav label{cursor:pointer;font-size:.85rem;color:var(--muted);padding:2px 10px;transition:.2s}
+nav label:hover{color:var(--text)}
+section{display:none}
+h2{font-size:1.9rem;line-height:1.2}
+h2::after{content:"";display:block;width:34px;height:3px;background:var(--accent);margin:10px 0 22px;border-radius:2px}
+h3{font-size:1.05rem;margin:30px 0 14px}
+p.lead{color:var(--muted);max-width:640px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.box{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.box h4{font-size:.95rem}
+.box p{color:var(--muted);font-size:.85rem;margin-top:4px}
+.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:22px;display:grid;gap:20px}
+.tl div{position:relative}
+.tl div::before{content:"";position:absolute;left:-29px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.tl b{display:block}
+.tl small{color:var(--accent);font-size:.78rem}
+.tl p{color:var(--muted);font-size:.88rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tags i{font-style:normal;font-size:.75rem;padding:3px 12px;border:1px solid var(--line);border-radius:99px;background:var(--card)}
+.label{color:var(--muted);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.row .btn{display:inline-block}
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.head h2::after{margin-bottom:0}
+/* tab logic */
+#t1:checked~.layout #about,#t2:checked~.layout #resume,#t3:checked~.layout #projects,#t4:checked~.layout #contact{display:block}
+#t1:checked~.layout [for=t1],#t2:checked~.layout [for=t2],#t3:checked~.layout [for=t3],#t4:checked~.layout [for=t4]{color:var(--accent)}
+input:focus-visible~.layout nav{outline:2px solid var(--accent)}
+@media(max-width:860px){
+ body{padding:20px 14px}
+ .layout{grid-template-columns:1fr}
+ .side{position:static}
+ .main{padding:70px 22px 28px}
+ .grid{grid-template-columns:1fr}
+ nav{border-radius:0 22px 0 22px;padding:12px 14px}
+}
+</style>
+</head>
+<body>
+<input type="radio" name="tab" id="t1" checked>
+<input type="radio" name="tab" id="t2">
+<input type="radio" name="tab" id="t3">
+<input type="radio" name="tab" id="t4">
+
+<div class="layout">
+ <aside class="side">
+  <img src="photo.jpg" alt="Portrait of Aditya Pun">
+  <h1>Aditya Pun</h1>
+  <span class="role">Software Engineering Student</span>
+  <ul class="info">
+   <li><span class="ico">@</span><div><small>Email</small><span><a href="mailto:adityapun00@gmail.com">adityapun00@gmail.com</a></span></div></li>
+   <li><span class="ico">&#9679;</span><div><small>Location</small><span>Kathmandu, Nepal</span></div></li>
+   <li><span class="ico">GH</span><div><small>GitHub</small><span><a href="https://github.com/adityapun-arch" target="_blank" rel="noopener">github.com/adityapun-arch</a></span></div></li>
+   <li><span class="ico">in</span><div><small>LinkedIn</small><span><a href="https://linkedin.com/in/adityapun" target="_blank" rel="noopener">linkedin.com/in/adityapun</a></span></div></li>
+  </ul>
+  <a class="btn p" href="cv.pdf" download="Aditya_Pun_CV.pdf">Download CV</a>
+  <a class="btn" href="cv.pdf" target="_blank" rel="noopener">Open CV</a>
+ </aside>
+
+ <main class="main">
+  <nav aria-label="Sections">
+   <label for="t1">About</label><label for="t2">Resume</label><label for="t3">Projects</label><label for="t4">Contact</label>
+  </nav>
+
+  <section id="about">
+   <h2>About me</h2>
+   <p class="lead">Undergraduate software engineering student with working knowledge of Python, HTML and CSS, and hands-on practice with Git and GitHub. Seeking an internship or entry-level web development role to build real-world experience and contribute to a team.</p>
+   <h3>What I work with</h3>
+   <div class="grid">
+    <div class="box"><h4>Web fundamentals</h4><p>Building pages and UI prototypes with semantic HTML and CSS.</p></div>
+    <div class="box"><h4>Python scripting</h4><p>Writing Python scripts and small utilities.</p></div>
+    <div class="box"><h4>Version control</h4><p>Using Git and GitHub for version control and documentation.</p></div>
+    <div class="box"><h4>System modelling</h4><p>Designing UML models and activity diagrams in Visual Paradigm.</p></div>
+   </div>
+  </section>
+
+  <section id="resume">
+   <div class="head"><h2>Resume</h2><div class="row" style="margin:0"><a class="btn p" href="cv.pdf" download="Aditya_Pun_CV.pdf">Download CV</a><a class="btn" href="cv.pdf" target="_blank" rel="noopener">Open full CV</a></div></div>
+   <h3>Experience</h3>
+   <div class="tl"><div><b>Fresher (Entry-Level)</b><p>Building practical web development skills through self-directed projects on GitHub and UML modelling work, and eager to learn on the job and contribute to a team.</p></div></div>
+   <h3>Education</h3>
+   <div class="tl">
+    <div><b>Patan College for Professional Studies (PCPS), Kathmandu</b><p>Bachelor in Software Engineering (in progress)</p><small>2026 – Present</small></div>
+    <div><b>Trinity International College, Kathmandu</b><p>+2 Science</p><small>2023 – 2025</small></div>
+    <div><b>Western English Medium Secondary School</b><p>SEE</p><small>2023</small></div>
+   </div>
+   <h3>Technical skills</h3>
+   <div class="grid">
+    <div class="box"><span class="label">Languages &amp; Web</span><div class="tags"><i>Python</i><i>HTML</i><i>CSS</i></div></div>
+    <div class="box"><span class="label">Tools</span><div class="tags"><i>Git</i><i>GitHub</i><i>VS Code</i></div></div>
+    <div class="box"><span class="label">Design / Modelling</span><div class="tags"><i>UML</i><i>Visual Paradigm</i></div></div>
+    <div class="box"><span class="label">Languages spoken</span><div class="tags"><i>Nepali (Native)</i><i>English (Fluent)</i></div></div>
+   </div>
+  </section>
+
+  <section id="projects">
+   <h2>Projects</h2>
+   <div class="box" style="text-align:center;padding:48px 24px;border-style:dashed">
+    <h4 style="font-size:1.1rem">Projects coming soon</h4>
+    <p style="max-width:420px;margin:8px auto 0">I'm currently working on new projects. Featured work will be published here as soon as it is ready.</p>
+    <div class="row" style="justify-content:center"><a class="btn" href="https://github.com/adityapun-arch" target="_blank" rel="noopener">Follow progress on GitHub</a></div>
+   </div>
+  </section>
+
+  <section id="contact">
+   <h2>Contact</h2>
+   <p class="lead">Open to internships and entry-level web development roles. Email is the best way to reach me.</p>
+   <div class="box" style="margin-top:24px;padding:22px">
+    <h4 style="font-size:1.05rem">Email</h4>
+    <p style="color:var(--text);font-size:.95rem">adityapun00@gmail.com</p>
+    <div class="row"><a class="btn p" href="mailto:adityapun00@gmail.com">Send an email</a><a class="btn" href="cv.pdf" download="Aditya_Pun_CV.pdf">Download CV</a></div>
+   </div>
+   <h3>Elsewhere</h3>
+   <div class="grid">
+    <a class="box" href="https://github.com/adityapun-arch" target="_blank" rel="noopener" style="text-decoration:none"><h4>GitHub</h4><p>github.com/adityapun-arch</p></a>
+    <a class="box" href="https://linkedin.com/in/adityapun" target="_blank" rel="noopener" style="text-decoration:none"><h4>LinkedIn</h4><p>linkedin.com/in/adityapun</p></a>
+    <div class="box"><h4>Location</h4><p>Kathmandu, Nepal</p></div>
+   </div>
+  </section>
+ </main>
+</div>
+</body>
+</html>
